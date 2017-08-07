@@ -45,6 +45,7 @@ Options:
         when :pages   then Docsplit.extract_pages(ARGV, @options)
         when :text    then Docsplit.extract_text(ARGV, @options)
         when :pdf     then Docsplit.extract_pdf(ARGV, @options)
+        when :clean   then print Docsplit.clean_text($stdin.read)
         else
           if METADATA_KEYS.include?(@command)
             value = Docsplit.send("extract_#{@command}", ARGV, @options)
